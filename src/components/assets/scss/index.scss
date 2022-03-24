@@ -1,0 +1,701 @@
+$poppin: 'Poppins',
+sans-serif;
+$roboto: 'Roboto',
+sans-serif;
+$bodyBg: #F6F7FB;
+$textColor: #B9BDCF;
+
+@mixin min-sm {
+    @media only screen and (min-width: 576px) {
+        @content;
+    }
+}
+
+@mixin min-md {
+    @media only screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin min-lg {
+    @media only screen and (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin min-xl {
+    @media only screen and (min-width: 1199px) {
+        @content;
+    }
+}
+
+@mixin min-xxl {
+    @media only screen and (min-width: 1400px) {
+        @content;
+    }
+}
+
+@mixin max-lg {
+    @media only screen and (max-width: 991px) {
+        @content;
+    }
+}
+
+@mixin max-md {
+    @media only screen and (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin formInput {
+    background: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    border-radius: 4px;
+}
+
+@mixin form {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    color: $textColor;
+    @include formInput;
+
+    label {
+        margin: 4px 8px;
+
+        svg {
+            width: 18px;
+            height: 18px;
+            display: block;
+        }
+    }
+}
+
+@mixin check-radio {
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    input {
+        display: none;
+    }
+
+    label {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        padding: 18px;
+        font-family: $poppin;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+        padding-left: 48px;
+        cursor: pointer;
+
+        &::before,
+        &::after {
+            content: "";
+            border-radius: 2px;
+            display: inline-block;
+            margin-right: 12px;
+            position: absolute;
+            left: 18px;
+            top: 18px;
+            transition: all .2s;
+        }
+
+        &::before {
+            border: 1px solid $textColor;
+            width: 18px;
+            height: 18px;
+        }
+
+        &::after {
+            transition-delay: .2s;
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+        }
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $roboto;
+    font-size: 14px;
+    line-height: 17px;
+    color: $textColor;
+    font-weight: 500;
+    background-color: $bodyBg;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1,
+.site-logo {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    font-family: $poppin;
+    color: #282538;
+}
+
+h3,
+.h3 {
+    font-family: $poppin;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    text-transform: uppercase;
+    color: $textColor;
+    margin-bottom: 14px;
+}
+
+.h1,
+.h2,
+.h3{
+    font-size: 32px;
+    color: #334680;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    line-height: 1.4;
+}
+
+ul,
+ol{
+    padding-left: 20px;
+}
+
+header {
+    padding: 32px 0;
+
+    .site-logo {
+        span {
+            font-weight: 400;
+        }
+    }
+}
+
+main {
+    padding-bottom: 50px;
+    padding-top: 42px;
+}
+
+/* footer */
+footer {
+    padding: 40px 0;
+    text-align: center;
+    background-color: $bodyBg;
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        font-weight: 600;
+    }
+}
+
+/* container */
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @include min-sm {
+        max-width: 520px;
+    }
+
+    @include min-md {
+        max-width: 750px;
+    }
+
+    @include min-lg {
+        max-width: 974px;
+    }
+
+    @include min-xl {
+        max-width: 1140px;
+    }
+
+    @include min-xxl {
+        max-width: 1200px;
+    }
+}
+
+main {
+
+    .container {
+
+        @include min-md {
+            display: flex;
+        }
+    }
+}
+
+/* btn */
+.btn {
+    min-width: 146px;
+    font-family: $roboto;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    border: 0;
+    background-color: transparent;
+    border-radius: 4px;
+    min-height: 48px;
+    cursor: pointer;
+    outline: none;
+    transition: all .2s;
+
+    &:active {
+        box-shadow: inset 0 0 10px rgba(0, 52, 112, .5);
+    }
+
+    &-primary {
+        background: #1E86FF;
+        color: #fff;
+
+        &:hover {
+            background: #0263d5;
+        }
+    }
+}
+
+/* search form */
+input[type='text'] {
+    width: 100%;
+    min-height: 48px;
+    border: 0;
+    outline: none;
+    font-family: $poppin;
+    margin-right: 4px;
+}
+
+.search-form {
+    padding: 42px;
+    border-radius: 8px;
+
+    form {
+        width: 100%;
+        margin: auto;
+        max-width: 790px;
+        @include form;
+    }
+}
+
+input::placeholder {
+    color: $textColor;
+    opacity: 1;
+}
+
+input::-moz-placeholder {
+    color: $textColor;
+    opacity: 1;
+}
+
+/* job filter */
+.job-filter,
+.sidebar {
+    width: 100%;
+
+    @include min-md {
+        width: 380px;
+        margin-right: 32px;
+        position: sticky;
+        top: 0;
+        height: 100%;
+    }
+
+    @include max-md {
+        margin-bottom: 30px;
+    }
+}
+
+.ft-check-form {
+    @include check-radio;
+
+    label {
+        &::after {
+            content: "";
+            width: 18px;
+            height: 18px;
+            left: 20px;
+            top: 18px;
+        }
+    }
+
+    input {
+        &:checked {
+            &~label {
+                &::before {
+                    background-color: #1E86FF;
+                    ;
+                    border-color: #1E86FF;
+                }
+
+                &::after {
+                    content: "✓";
+                }
+            }
+        }
+    }
+}
+
+.search-location-group {
+    @include form;
+    margin-bottom: 20px;
+    position: relative;
+
+    &.error-input {
+        box-shadow: 0 2px 8px rgba(255, 0, 0, .4);
+    }
+}
+
+.error {
+    color: #ff4a4a;
+    height: 20px;
+    width: 20px;
+    margin: 4px 8px;
+}
+
+.location-list {
+    list-style: none;
+    padding-left: 0;
+
+    &-item {
+        @include check-radio;
+        cursor: default;
+        margin-bottom: 0;
+
+        input {
+            &:checked {
+                &~label {
+                    &::before {
+                        border-color: #1E86FF;
+                    }
+
+                    &::after {
+                        background-color: #1E86FF;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+
+        label {
+            padding-top: 9px;
+            padding-bottom: 9px;
+            color: #334680;
+
+            &::before,
+            &::after {
+                top: 9px;
+            }
+
+            &::before {
+                border-radius: 50%;
+            }
+
+            &::after {
+                width: 14px;
+                height: 14px;
+                left: 21px;
+                top: 12px;
+            }
+        }
+    }
+}
+
+/* job card */
+.job-card-wrapper,
+.job-details {
+    width: 100%;
+}
+
+.job-card {
+    @include formInput;
+    padding: 12px;
+    margin-bottom: 32px;
+    display: flex;
+
+    a {
+        display: block;
+    }
+
+    .company-logo {
+        border-radius: 4px;
+        width: 90px;
+        height: 90px;
+        overflow: hidden;
+        margin-right: 16px;
+
+        img {
+            display: block;
+            object-fit: cover;
+        }
+    }
+
+    .company-name {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 14px;
+        color: #334680;
+        margin-bottom: 8px;
+    }
+
+    .profile {
+        font-size: 18px;
+        line-height: 21px;
+        color: #334680;
+        margin-bottom: 12px;
+    }
+
+    .job-des {
+        width: 100%;
+    }
+
+    .job-card-footer {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .company-country {
+        margin-right: 16px;
+    }
+}
+
+
+.job-type-card {
+    border: 1px solid #334680;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    color: #334680;
+    display: inline-block;
+    padding: 6px 8px;
+}
+
+.d-center {
+    display: flex;
+    align-items: center;
+
+    svg {
+        margin-right: 8px;
+        display: block;
+    }
+}
+
+/* pagination */
+.pagination {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+
+    &-item {
+        border: 1px solid #B7BCCE;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 36px;
+        margin-left: 12px;
+        cursor: pointer;
+        font-size: 12px;
+        line-height: 14px;
+        transition: all .2s;
+        margin-bottom: 10px;
+
+        &.disabled {
+            opacity: .5;
+            pointer-events: none;
+        }
+
+        svg {
+            height: 20px;
+            width: 20px;
+        }
+
+        &:hover {
+            border-color: #1E86FF;
+            color: #1E86FF;
+        }
+
+        &.active {
+            border-color: #1E86FF;
+            background-color: #1E86FF;
+            color: #fff;
+        }
+    }
+}
+
+/* loading */
+.loading-container {
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    img {
+        max-width: 40px;
+    }
+}
+
+/* Job Details */
+.sidebar {
+    color: #334680;
+    font-family: $poppin;
+    font-weight: 500;
+
+    a.back-to-search {
+        color: #1E86FF;
+        font-size: 14px;
+        line-height: 21px;
+        display: flex;
+        margin-bottom: 36px;
+        align-items: center;
+
+        svg {
+            display: block;
+            margin-right: 15px;
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .contact-info {
+        font-size: 14px;
+        line-height: 21px;
+        margin-bottom: 30px;
+
+        a {
+            color: #1E86FF;
+        }
+
+        @include min-lg {
+            max-width: 250px;
+        }
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+
+        .tag {
+            background: #fff;
+            padding: 4px 8px;
+            margin-right: 6px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            font-size: 80%;
+        }
+    }
+}
+
+.job-details {
+    color: #334680;
+
+    img{
+        display: block;
+    }
+
+    .heading {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .job-title {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 28px;
+        margin-right: 15px;
+    }
+
+    .posted-date,
+    .company-info {
+        margin-bottom: 32px;
+    }
+
+    .posted-date,
+    .company-country {
+        color: #B9BDCF;
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .company-logo {
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        margin-right: 12px;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .company-name {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 21px;
+        margin-bottom: 10px;
+    }
+
+    .company-info {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .company-description {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+
+        br {
+            display: none;
+        }
+
+        ul,
+        p {
+            margin-bottom: 20px;
+            background-color: transparent !important;
+
+            li {
+                white-space: normal !important;
+                margin-left: 0 !important;
+            }
+
+            span{
+                background-color: transparent !important;
+                text-decoration: none !important;
+            }
+        }
+
+        p + ul {
+            margin-top: -15px;
+        }
+    }
+}

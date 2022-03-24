@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import SearchForm from "./components/Form/SearchForm";
+import JobCardList from "./components/JobCardList";
+import JobDescription from "./components/JobDescription";
+import JobFilter from "./components/JobFilter";
+import Footer from "./components/layout/Footer";
+import Header from "./components/layout/Header";
+import { JobContextProvider } from "./context/JobContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <JobContextProvider>
+      <Router basename="/remote-jobs">
+        {/* HEADER */}
+        <Header />
+
+        {/* SEARCH FORM */}
+        <SearchForm />
+
+        <main>
+          <div className="container">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <JobFilter />
+                    <JobCardList />
+                  </>
+                }
+              />
+              <Route path="/:jobDetailUrl" element={<JobDescription />} />
+            </Routes>
+          </div>
+        </main>
+
+        {/* FOOTER */}
+        <Footer />
+      </Router>
+    </JobContextProvider>
   );
 }
 
