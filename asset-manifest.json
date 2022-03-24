@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/remote-jobs/static/css/main.a48fe7a8.css",
+    "main.js": "/remote-jobs/static/js/main.87a233ea.js",
+    "static/js/787.2f0bf106.chunk.js": "/remote-jobs/static/js/787.2f0bf106.chunk.js",
+    "static/media/backgroundImg.png": "/remote-jobs/static/media/backgroundImg.c84275682c4b641c6db4.png",
+    "static/media/spinner.gif": "/remote-jobs/static/media/spinner.a1a996746e5e48352c81.gif",
+    "index.html": "/remote-jobs/index.html",
+    "main.a48fe7a8.css.map": "/remote-jobs/static/css/main.a48fe7a8.css.map",
+    "main.87a233ea.js.map": "/remote-jobs/static/js/main.87a233ea.js.map",
+    "787.2f0bf106.chunk.js.map": "/remote-jobs/static/js/787.2f0bf106.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a48fe7a8.css",
+    "static/js/main.87a233ea.js"
+  ]
+}
